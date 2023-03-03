@@ -54,6 +54,7 @@ Constraints:
 -105 ≤  Ai ≤ 105
 -1 ≤  Pi ≤ N
 '''
+from typing import List
 from math import inf
 class Solution:
     def dfs(self, tree, A, u):
@@ -75,3 +76,5 @@ class Solution:
             tree[p-1].append(ind + 1)
         
         return self.dfs(tree, A, 0)[0]
+
+
