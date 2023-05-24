@@ -36,10 +36,17 @@ Constraints:
 1 <= arr[i] <= 109
 Array may contain duplicate elements.
 '''
-def getMaximum(n, v):
-    sum = 0
-    for vl in v:
-        sum += vl
-    for i in range(n, 0, -1):
-        if sum % i == 0:
-            return i
+
+from typing import List
+class Solution:
+    def getMaximum(self, N : int, arr : List[int]) -> int:
+        # code here
+        def gm(n, v):
+            sum = 0
+            for vl in v:
+                sum += vl
+            for i in range(n, 0, -1):
+                if sum % i == 0:
+                    return i
+        return(gm(N,arr))
+        
