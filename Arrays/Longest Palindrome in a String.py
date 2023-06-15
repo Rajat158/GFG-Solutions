@@ -26,26 +26,23 @@ Expected Auxiliary Space: O(1).
 Constraints:
 1 ≤ |S| ≤ 103
 '''
+
 class Solution:
     def longestPalin(self, S):
         # code here
-        def get(l,h):
-            while l>=0 and h<len(S):
-                if S[l]!=S[h]:
-                    break
-                l-=1
-                h+=1
-            return l+1,h-1
-        maxi=0;v=[0,0]
+        res=""
+        s2=0
+        if(S==S[::-1]):
+            return (S)
         for i in range(len(S)):
-            ff,fl=get(i,i)
-            sf,sl=get(i,i+1)
-            if fl-ff+1>(maxi):
-                maxi=fl-ff+1
-                v[0]=ff
-                v[1]=fl
-            if sl-sf+1>(maxi):
-                maxi=sl-sf+1
-                v[0]=sf
-                v[1]=sl
-        return S[v[0]:v[1]+1]
+            st=''
+            s1=0
+            for j in range(i,len(S)):
+                st+=S[j]
+                s1+=1
+                if(st==st[::-1]):
+                    if(s1>s2):
+                        res=st
+                        s2=s1
+        return res
+            
