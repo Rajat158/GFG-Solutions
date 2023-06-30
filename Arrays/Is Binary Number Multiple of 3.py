@@ -20,10 +20,13 @@ Expected Auxiliary Space: O(1)
 Constraints:
 1 ≤ |S| ≤ 105
 '''
-from functools import reduce
-
 class Solution:
-    def isDivisible(self, s):
-	    s = [int(i) for i in s]
-	    res = reduce(lambda a, b: a*2+b, s)
-	    return 1 if not res%3 else 0
+	    
+	def isDivisible(self, s):
+	    odd, even, pos = 0, 0, 0
+	    for i in s:
+	        if i=="1":
+	            if pos%2==0:odd+=1
+	            else:even+=1
+	        pos+=1
+	    return 1 if not abs(odd-even)%3 else 0
